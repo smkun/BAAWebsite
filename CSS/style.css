@@ -1,0 +1,314 @@
+/* Fonts */
+@font-face {
+    font-family: "Heroes Assemble Expanded Italic";
+    src: url("../FONTS/HeroesAssembleExpandedItalic-wzEw.otf")
+        format("opentype");
+}
+
+@font-face {
+    font-family: "American Captain";
+    src: url("../FONTS/AmericanCaptain-MdEY.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Iron Man of War";
+    src: url("../FONTS/IronManOfWar2Ncv-E85l.ttf") format("truetype");
+}
+
+/* Root Variables */
+:root {
+    --primary-bg: #d6dde2;
+    --header-bg-start: #8a9aa8;
+    --header-bg-end: #728192;
+    --section-bg: #ebf5ff;
+    --accent-color: #c72c41;
+    --text-color: #333333;
+    --nav-font-color: #062758;
+    --nav-link-hover-bg: rgba(25, 118, 210, 0.3);
+}
+
+/* Global Styles */
+html {
+    scroll-padding-top: 140px; /* Adjust based on your navbar height */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    background: var(--primary-bg);
+    color: var(--text-color);
+    padding: 20px;
+}
+
+/* Apply Comic Sans to all <p> elements */
+p {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+/* Header & Navigation */
+header {
+    background: linear-gradient(
+        90deg,
+        var(--header-bg-start),
+        var(--header-bg-end)
+    );
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+header nav a {
+    font-family: "American Captain", sans-serif;
+    color: var(--nav-font-color);
+    text-decoration: none;
+    margin: 5px 10px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background 0.3s;
+    font-size: 22px;
+}
+
+header nav a:hover {
+    background: var(--nav-link-hover-bg);
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Iron Man of War", sans-serif;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+/* Links */
+a {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* Home Page Image Fix */
+.home-image {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 0 auto;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Section Containers */
+.section-container {
+    background: var(--section-bg);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hide all sections by default, except the active one */
+.section-container:not(.section-active) {
+    display: none;
+}
+
+/* Team Tabs */
+.team-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+/* Hide all teams by default, only show active team */
+.team-content {
+    display: none;
+}
+.team-content.active {
+    display: block;
+}
+.tab-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+    background-color: #a12234;
+}
+
+/* Student List (3-Column Layout) */
+.student-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+/* Student Card */
+.student-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect (Controlled Scale) */
+/* .student-card:hover {
+    transform: scale(1.05);
+} */
+
+/* Small Round Image */
+.student-card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Student Info */
+.student-info h3 {
+    margin: 0;
+    font-size: 26px;
+    color: var(--accent-color);
+}
+
+.student-info p {
+    margin: 5px 0 0;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    header nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav a {
+        margin: 5px 0;
+        padding: 10px;
+    }
+
+    .section-container {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    /* Stack student cards in a single column for mobile */
+    .student-list {
+        grid-template-columns: 1fr;
+    }
+}
+/* Adjust Hero Page Images */
+.content-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.content-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+    text-align: left;
+}
+
+/* Center Titles in Hero Pages */
+.content-container .title {
+    font-family: "Heroes Assemble Expanded Italic", sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* Faculty Grid Layout */
+.faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+/* Faculty Card */
+.faculty-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+/* .faculty-card:hover {
+    transform: scale(1.05);
+} */
+
+/* Faculty Image */
+.faculty-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Faculty Info */
+.faculty-info h3 {
+    font-size: 26px;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+.faculty-info p {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* Faculty Profile Link */
+.profile-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--accent-color);
+    text-decoration: none;
+    padding: 5px;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.profile-link:hover {
+    color: #a12234;
+    text-decoration: underline;
+}
